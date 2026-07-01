@@ -5,6 +5,7 @@ English | [简体中文](README_zh.md)
 The PyTorch open source implementation for the ACL 2024 paper "EFSA: Towards Event-Level Financial Sentiment Analysis".
 
 [ACL Anthology link](https://aclanthology.org/2024.acl-long.402/)
+[arXiv link](https://arxiv.org/abs/2404.08681)
 [PDF link](https://aclanthology.org/2024.acl-long.402.pdf)
 [DOI link](https://doi.org/10.18653/v1/2024.acl-long.402)
 
@@ -15,26 +16,12 @@ Please reach us via emails or via GitHub issues for any enquiries.
 Please cite our work if you find it useful for your research and work.
 
 ```bibtex
-@inproceedings{chen-etal-2024-efsa,
-    title = "{EFSA}: Towards Event-Level Financial Sentiment Analysis",
-    author = "Chen, Tianyu  and
-      Zhang, Yiming  and
-      Yu, Guoxin  and
-      Zhang, Dapeng  and
-      Zeng, Li  and
-      He, Qing  and
-      Ao, Xiang",
-    editor = "Ku, Lun-Wei  and
-      Martins, Andre  and
-      Srikumar, Vivek",
-    booktitle = "Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
-    month = aug,
-    year = "2024",
-    address = "Bangkok, Thailand",
-    publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2024.acl-long.402/",
-    doi = "10.18653/v1/2024.acl-long.402",
-    pages = "7455--7467"
+@inproceedings{chen2024efsa,
+  title={EFSA: Towards event-level financial sentiment analysis},
+  author={Chen, Tianyu and Zhang, Yiming and Yu, Guoxin and Zhang, Dapeng and Zeng, Li and He, Qing and Ao, Xiang},
+  booktitle={Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  pages={7455--7467},
+  year={2024}
 }
 ```
 
