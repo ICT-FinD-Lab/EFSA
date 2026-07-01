@@ -1,4 +1,7 @@
 # EFSA
+
+English | [简体中文](README_zh.md)
+
 The PyTorch open source implementation for the ACL 2024 paper "EFSA: Towards Event-Level Financial Sentiment Analysis".
 
 [ACL Anthology link](https://aclanthology.org/2024.acl-long.402/)
