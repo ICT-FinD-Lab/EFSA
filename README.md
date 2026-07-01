@@ -27,11 +27,11 @@ Please cite our work if you find it useful for your research and work.
 
 ## Abstract
 
-In this paper, we extend financial sentiment analysis (FSA) to event-level since events usually serve as the subject of the sentiment in financial text. Though extracting events from the financial text may be conducive to accurate sentiment predictions, it has specialized challenges due to the lengthy and discontinuity of events in a financial text. To this end, we reconceptualize the event extraction as a classification task by designing a categorization comprising coarse-grained and fine-grained event categories. Under this setting, we formulate the Event-Level Financial Sentiment Analysis (EFSA for short) task that outputs quintuples consisting of (company, industry, coarse-grained event, fine-grained event, sentiment) from financial text. A large-scale Chinese dataset containing 12,160 news articles and 13,725 quintuples is publicized as a brand new testbed for our task. A four-hop Chain-of-Thought LLM-based approach is devised for this task. Systematic investigations are conducted on our dataset, and the empirical results demonstrate the benchmarking scores of existing methods and our proposed method can reach the current state-of-the-art.
+In this paper, we extend financial sentiment analysis (FSA) to event-level since events usually serve as the subject of the sentiment in financial text. Though extracting events from the financial text may be conducive to accurate sentiment predictions, it has specialized challenges due to the lengthy and discontinuity of events in a financial text. To this end, we reconceptualize the event extraction as a classification task by designing a categorization comprising coarse-grained and fine-grained event categories. Under this setting, we formulate the Event-Level Financial Sentiment Analysis (EFSA for short) task that outputs quintuples consisting of (company, industry, coarse-grained event, fine-grained event, sentiment) from financial text. A large-scale Chinese dataset is publicized as a brand new testbed for our task. A four-hop Chain-of-Thought LLM-based approach is devised for this task. Systematic investigations are conducted on our dataset, and the empirical results demonstrate the benchmarking scores of existing methods and our proposed method can reach the current state-of-the-art.
 
 ## Dataset
 
-All the data in our dataset can be found in `data/data.json`.
+The bundled `data/data.json` file contains 12,160 news articles and 13,724 company-level event-sentiment annotations.
 
 The correspondence between companies and industries can be found in `knowledge/company2industry.xlsx`.
 
@@ -47,7 +47,9 @@ Install the required dependencies before running the code:
 pip install torch transformers
 ```
 
-The prompt scripts load a local or Hugging Face-compatible model through `transformers`. Replace `model-name` in the scripts with the actual model path or model identifier before running.
+The prompt scripts currently call `.half().cuda()`, so running them as-is requires an NVIDIA GPU with CUDA. CPU-only execution requires changing the model loading code accordingly.
+
+The prompt scripts load a local or Hugging Face-compatible model through `transformers`. Replace `model-name` in the scripts with the actual model path or model identifier before running. The selected model must provide a `model.chat(tokenizer, prompt, history=...)` interface; a generic `AutoModel` without this chat API is not sufficient.
 
 ## Update
 
