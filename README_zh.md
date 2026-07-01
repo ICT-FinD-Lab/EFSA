@@ -27,11 +27,11 @@ ACL 2024 论文《EFSA: Towards Event-Level Financial Sentiment Analysis》的 P
 
 ## 摘要
 
-本文将金融情感分析（Financial Sentiment Analysis, FSA）扩展到事件级别，因为事件通常是金融文本中情感表达的主体。尽管从金融文本中抽取事件有助于提升情感预测的准确性，但金融文本中的事件往往较长且存在不连续性，因此这一任务具有专门挑战。为此，我们将事件抽取重新建模为分类任务，并设计了由粗粒度事件类别和细粒度事件类别组成的事件分类体系。在这一设定下，我们提出事件级金融情感分析任务（Event-Level Financial Sentiment Analysis，简称 EFSA），该任务从金融文本中输出由（公司、行业、粗粒度事件、细粒度事件、情感）构成的五元组。我们公开了一个大规模中文数据集，包含 12,160 篇新闻文章和 13,725 个五元组，为该任务提供新的测试平台。本文还设计了一种基于大语言模型的四跳 Chain-of-Thought 方法。我们在数据集上进行了系统实验，结果展示了已有方法和本文方法的基准性能，其中本文方法达到了当前最优水平。
+本文将金融情感分析（Financial Sentiment Analysis, FSA）扩展到事件级别，因为事件通常是金融文本中情感表达的主体。尽管从金融文本中抽取事件有助于提升情感预测的准确性，但金融文本中的事件往往较长且存在不连续性，因此这一任务具有专门挑战。为此，我们将事件抽取重新建模为分类任务，并设计了由粗粒度事件类别和细粒度事件类别组成的事件分类体系。在这一设定下，我们提出事件级金融情感分析任务（Event-Level Financial Sentiment Analysis，简称 EFSA），该任务从金融文本中输出由（公司、行业、粗粒度事件、细粒度事件、情感）构成的五元组。我们公开了一个大规模中文数据集，为该任务提供新的测试平台。本文还设计了一种基于大语言模型的四跳 Chain-of-Thought 方法。我们在数据集上进行了系统实验，结果展示了已有方法和本文方法的基准性能，其中本文方法达到了当前最优水平。
 
 ## 数据集
 
-数据集文件位于 `data/data.json`。
+随仓库发布的 `data/data.json` 文件包含 12,160 篇新闻文章和 13,724 条公司级事件情感标注。
 
 公司与行业的对应关系位于 `knowledge/company2industry.xlsx`。
 
@@ -48,6 +48,10 @@ pip install torch transformers
 ```
 
 Prompt 脚本通过 `transformers` 加载本地模型或 Hugging Face 兼容模型。运行前请将脚本中的 `model-name` 替换为实际模型路径或模型标识符。
+
+当前 Prompt 脚本会调用 `.half().cuda()`，因此按原样运行需要 NVIDIA GPU 和 CUDA 环境。如果需要在 CPU 环境运行，请相应修改模型加载代码。
+
+所选模型还必须提供 `model.chat(tokenizer, prompt, history=...)` 接口；普通的不带 chat API 的 `AutoModel` 并不能直接运行这些脚本。
 
 ## 更新
 
